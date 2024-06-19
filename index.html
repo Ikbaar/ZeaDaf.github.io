@@ -67,6 +67,7 @@
 
   <section id="home" class="home">
         <!-- <img src="img/item1.png" alt="Image 1" class="image-slide"> -->
+        <!-- <img src="img/item.png" alt="Image 3" class="image-slide image-slide-3"> -->
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8 text-center">
@@ -256,6 +257,25 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+	<script>
+		simplyCountdown('.simply-countdown', {
+			year: 2024, // required
+            month: 6, // required
+            day: 19, // required
+            hours: 7, // Default is 0 [0-23] integer
+            words: { //words displayed into the countdown
+                days: { singular: 'day', plural: 'days' },
+                hours: { singular: 'hour', plural: 'hours' },
+                minutes: { singular: 'minute', plural: 'minutes' },
+                seconds: { singular: 'second', plural: 'seconds' }
+            },
+            plural: true, //use plurals
+            onEnd: function () {
+                // your code
+                return;
+            },
+		})
+	</script>
 
   <script>
     const stickyTop = document.querySelector('.sticky-top');
@@ -344,6 +364,33 @@
     });
   });
 </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const observerOptions = {
+      threshold: 0.5 // Ketika setengah dari elemen masuk ke dalam viewport
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target); // Berhenti mengamati setelah animasi dimulai
+        }
+      });
+    }, observerOptions);
+
+    // Ambil semua elemen gambar yang akan dianimasikan
+    const imagesToAnimate = document.querySelectorAll('.image-slide');
+    imagesToAnimate.forEach(image => {
+      observer.observe(image);
+    });
+  });
+</script>
+
+
+
+
 
   <!-- <script>
     const urlParams = new URLSearchParams(window.location.search);
