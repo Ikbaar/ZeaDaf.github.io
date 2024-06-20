@@ -32,8 +32,8 @@
 
 	<section id="hero" class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
 		<main>
-		<h4>Ms. Sandra At the place</h4>
-    <img src="img/bg2.jpeg" alt="Pasangan Bahagia" class="couple-image">
+    <!-- <img src="img/bg2.jpeg" alt="Pasangan Bahagia" class="couple-image"> -->
+    <h2>Ms. Sandra At the place</h2>
 
 			<h1>The wedding of Daffa Riski & Kaifa Zea</h1>
 			<!-- <p>We will start our wedding reception on:</p>
@@ -71,7 +71,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8 text-center">
-          <h2>Wedding Party</h2>
+          <h2 class="fade-1">Wedding Party</h2>
           <h3>The wedding will be held on June 20, 2024, in Bogor, West Java.</h3>
           <p>Therefore, with the utmost respect, we intend to invite you to attend our wedding ceremony</p>
         </div>
@@ -116,7 +116,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8 col-10 text-center">
-          <h2>Event Information</h2>
+          <h2 class="fade-2">Event Information</h2>
           <p class="alamat">Address : SMAN 1 Caringin <br>Mayjen H.R. Edi Sukma Street No. km 16, Cimande Hilir, Caringin District, Bogor Regency</p>
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15850.126742138587!2d106.82474!3d-6.70477!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c956b3bdcaaf%3A0x8a14ef159bec2f30!2sSMA%20Negeri%201%20Caringin!5e0!3m2!1sid!2sid!4v1718694893046!5m2!1sid!2sid"
            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -182,7 +182,7 @@
           <!-- <img src="img/item1.png" alt="Image 1" class="image-slide">
           <img src="img/item2.png" alt="Image 2" class="image-slide"> -->
           <span></span>
-          <h2>Our story</h2>
+          <h2 class="fade-3">Our story</h2>
           <p> </p>
         </div>
       </div>
@@ -388,9 +388,83 @@
   });
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.fade-1');
 
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
 
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-1-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
 
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
+
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.fade-2');
+  
+      const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+      };
+  
+      const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('fade-2-visible');
+                  observer.unobserve(entry.target);
+              }
+          });
+      }, observerOptions);
+  
+      sections.forEach(section => {
+          observer.observe(section);
+      });
+  });
+  
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.fade-3');
+  
+      const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+      };
+  
+      const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('fade-3-visible');
+                  observer.unobserve(entry.target);
+              }
+          });
+      }, observerOptions);
+  
+      sections.forEach(section => {
+          observer.observe(section);
+      });
+  });
+  
+  </script>
 
   <!-- <script>
     const urlParams = new URLSearchParams(window.location.search);
